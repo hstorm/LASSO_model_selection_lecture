@@ -34,7 +34,13 @@ in an prediction context)
 - ```wages_lasso.Rmd``` (Example on how to use Lasso for variable selection in 
 causal interpretation context)
 
-* Note: the datasets to run the notebooks are available on request.* 
+* Note 1: the datasets to run the notebooks are available on request.* 
+
+* Note 2: in the folder ```/examples``` there are also html files for each 
+notebook if you clone this repository (or download it) you can open those 
+files in a browser. Those files give the code as well as rendered outputs. 
+(Sadly github has in issue with those files an no preview is provided, so you 
+actually need to download those files). * 
 
 
 
