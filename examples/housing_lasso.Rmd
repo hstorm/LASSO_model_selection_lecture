@@ -1,0 +1,146 @@
+---
+title: "R Example LASSO: House prices"
+output: html_notebook
+---
+
+R Example for the lecture: 
+**Advanced model specification with LASSO** 
+
+Guest Lecture: Advanced Applied Econometrics, Master of Agricultural and 
+Food Economics, SS2021, Uni Bonn 
+  
+*Hugo Storm (hugo.storm@ilr.uni-bonn.de),  May 2021*
+
+-----------------
+
+This is an example  of how to use LASSO for model selection in the context of 
+predicting house prices. 
+
+Data and example from Verbeek (2008) A Guide to Modern Econometrics (3th), 
+section 3.4 
+
+
+```{r}
+## Clear workspace 
+rm(list = ls())
+
+# Set random number seed
+set.seed(13)
+
+# Load packages
+library(glmnet)
+library(plotmo)
+
+```
+### Load and prepare the data
+```{r}
+#Import data as a data frame
+dat<-read.csv("housing.csv", sep=";")
+
+```
+Have a look at the data. 
+We have sale prices on houses ("PRICE") as well as information about different
+attributes of each house (for details see Verbeek)
+```{r}
+
+dat
+
+
+```
+
+Prepare a dataframe including all explanatory variables as well as 
+interaction terms between all explanatory variables 
+```{r}
+XVars <- c("LOTSIZE","BATHRMS"
+           ,"DRIVEWAY","GARAGEPL","GASHW"
+           ,"PREFAREA","RECROOM","AIRCO"
+           ,"BEDROOMS","STORIES","FULLBASE") 
+
+# Get interaction terms
+df <- model.matrix( ~.^2-1, data=subset(dat, 
+                                       select =XVars ))
+df <- as.data.frame(df)
+```
+Define squared terms for certain variables. We only want squared terms for 
+variables that are not dummies.  
+```{r}
+df$BEDROOMS2 = dat$BEDROOMS^2
+df$BATHRMS2 = df$BATHRMS^2
+df$STORIES2 = df$STORIES^2
+df$GARAGEPL2 = df$GARAGEPL^2
+df$LOTSIZE2 = df$LOTSIZE^2
+```
+
+
+### Run Lasso using the glmnet package
+
+With "alpha=1" you get an Lasso estimate, with "alpha=0" you get ridge regression
+and with values between 0-1 we get an elastic net. 
+
+For further details see: 
+
+"An Introduction to glmnet" https://cran.r-project.org/web/packages/glmnet/vignettes/glmnet.pdf
+Or
+Hastie et al 2015. Statistical Learning with Sparsity, chapter "3.7 Computational Details and glmnet" pp. 50. http://web.stanford.edu/~hastie/StatLearnSparsity/
+
+
+
+```{r}
+lasso_mod <- glmnet(df,dat$PRICE,alpha=1, family='gaussian')
+```
+
+Plot selection path 
+
+```{r}
+plot_glmnet(lasso_mod, label=15)
+```
+Compare model selection path to ridge (setting alpha=0 to get ridge regression)
+```{r}
+#Ridge
+ridge_mod <- glmnet(df,dat$PRICE,alpha=0)
+plot_glmnet(ridge_mod, label=15)
+
+```
+Compare model selection path to elastic net (setting alpha in the rage 0-1)
+```{r}
+#Elastic net with alpha 0.5
+elastic_mod <- glmnet(df,dat$PRICE,alpha=0.5)
+plot_glmnet(elastic_mod, label=15)
+
+```
+
+
+
+Run cross-validation for model selection
+```{r}
+cvfit <- cv.glmnet(as.matrix(df),dat$PRICE,nfolds =20)
+```
+Plot selection path, This plot gives you the out of sample prediction error
+for different values of lambda. Based on this plot we can determine an "optimal" 
+model specification in terms of the out-of-sample prediction error. 
+
+
+Note it is common practices to check for two specific values. 
+First, we check where the out of sample prediction error is smallest this is the
+point indicated with the left vertical line. The other points is the value 
+for lambda where the prediction error is still within 1 standard deviation 
+of the error for the best model (the right vertical line). 
+Typically the second point is chosen for the "best" model specification 
+(note that there is not really theoretical motivation for this approach, this 
+is more a convention that is typically applied). 
+```{r}
+plot(cvfit)
+
+```
+Get the model with the lowest error (indicated be the left vertical 
+line in the plot)
+
+```{r}
+coef(cvfit ,s ="lambda.min")
+```
+Get the model with error within 1sd error of best model (indicated be the 
+right vertical line in the plot) 
+
+```{r}
+coef(cvfit ,s ="lambda.1se")
+```
