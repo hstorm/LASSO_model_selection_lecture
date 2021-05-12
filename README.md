@@ -33,3 +33,15 @@ See folder: ```/examples```
 in an prediction context)
 - ```wages_lasso.Rmd``` (Example on how to use Lasso for variable selection in 
 causal interpretation context)
+
+## Recommended Readings
+
+**Paper on double selection**
+Belloni, Alexandre, Victor Chernozhukov, and Christian Hansen. 2014. “High-Dimensional Methods and Inference on Structural and Treatment Effects.” The Journal of Economic Perspectives 28 (2): 29–50. https://pubs.aeaweb.org/doi/pdfplus/10.1257/jep.28.2.29
+
+
+**Full book on LASSO**
+Hastie, Trevor, Robert Tibshirani, and Martin Wainwright. 2015. Statistical Learning with Sparsity: The Lasso and Generalizations. Chapman & Hall/CRC Monographs on Statistics and Applied Probability. Philadelphia, PA: Chapman & Hall/CRC. *pdf available at* http://web.stanford.edu/~hastie/StatLearnSparsity/
+
+
+
