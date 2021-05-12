@@ -34,6 +34,11 @@ in an prediction context)
 - ```wages_lasso.Rmd``` (Example on how to use Lasso for variable selection in 
 causal interpretation context)
 
+* Note: the datasets to run the notebooks are available on request.* 
+
+
+
+
 ## Recommended Readings
 
 **Paper on double selection**
