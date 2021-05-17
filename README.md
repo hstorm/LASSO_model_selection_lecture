@@ -20,7 +20,7 @@ Food Economics, SS2021, Uni Bonn
 
 
 ## Lecture Videos
-available under: [Add link]
+available under: https://youtu.be/oDVATVVYOnk
 
 
 ## Lecture Slides 
