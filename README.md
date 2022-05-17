@@ -1,9 +1,9 @@
 # Lecture Advanced model specification with LASSO
 
 Guest Lecture: Advanced Applied Econometrics, Master of Agricultural and 
-Food Economics, SS2021, Uni Bonn 
+Food Economics, SS2022, Uni Bonn 
   
-*Hugo Storm (hugo.storm@ilr.uni-bonn.de),  May 2021*
+*Hugo Storm (hugo.storm@ilr.uni-bonn.de),  May 2022*
 
 
 ## Learning aims
@@ -17,10 +17,6 @@ Food Economics, SS2021, Uni Bonn
 - Understand connection to econometrics model selection 
 - Understand “Post-Lasso” model selection and its limitations
 - Understand better approach for model selection using Lasso when doing causal analysis
-
-
-## Lecture Videos
-available under: https://youtu.be/oDVATVVYOnk
 
 
 ## Lecture Slides 
@@ -43,6 +39,8 @@ files in a browser. Those files give the code as well as rendered outputs.
 actually need to download those files). * 
 
 
+## Lecture Videos form previous year
+available under: https://youtu.be/oDVATVVYOnk
 
 
 ## Recommended Readings
