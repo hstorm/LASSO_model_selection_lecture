@@ -1,9 +1,9 @@
 # Lecture Advanced model specification with LASSO
 
 Guest Lecture: Advanced Applied Econometrics, Master of Agricultural and 
-Food Economics, SS2022, Uni Bonn 
+Food Economics, SS2023, Uni Bonn 
   
-*Hugo Storm (hugo.storm@ilr.uni-bonn.de),  May 2022*
+*Hugo Storm (hugo.storm@ilr.uni-bonn.de),  May 2023*
 
 
 ## Learning aims
@@ -39,7 +39,7 @@ files in a browser. Those files give the code as well as rendered outputs.
 actually need to download those files). * 
 
 
-## Lecture Videos form previous year
+## Lecture Videos form 2021
 available under: https://youtu.be/oDVATVVYOnk
 
 
