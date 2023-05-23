@@ -1,15 +1,17 @@
 ---
-title: "R Example LASSO: House prices"
-output: html_notebook
+title: 'R Example LASSO: House prices'
+output:
+  html_document:
+    df_print: paged
 ---
 
 R Example for the lecture: 
 **Advanced model specification with LASSO** 
 
 Guest Lecture: Advanced Applied Econometrics, Master of Agricultural and 
-Food Economics, SS2021, Uni Bonn 
+Food Economics, SS2023, Uni Bonn 
   
-*Hugo Storm (hugo.storm@ilr.uni-bonn.de),  May 2021*
+*Hugo Storm (hugo.storm@ilr.uni-bonn.de),  May 2023*
 
 -----------------
 
@@ -143,4 +145,5 @@ right vertical line in the plot)
 
 ```{r}
 coef(cvfit ,s ="lambda.1se")
+
 ```
