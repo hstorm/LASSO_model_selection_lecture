@@ -225,13 +225,7 @@ in the first place we would hardly consider lasso for variable selection.
 
 Also the results from the Post-Lasso are quite sensitive, if you change the
 random number seed or the number of folds in the cross validation Lasso excluded 
-less variables. This seem to be a happen quite frequently that the Post-Lasso 
-are sensitive results are sensitive to the seed and number of folds. Ideally 
-you run the model selection procedure for many different random number seeds 
-and different number of folds and then summarize the results (i.e. take all the 
-variables that are selected in most of the runs, or all variables selected 
-in any run).
-Also we could opt to use the "lambda.min" rule for model selection 
+less variables. Also we could opt to use the "lambda.min" rule for model selection 
 in the Post-Lasso which would have left more variables in the model (actually in 
 this specific run the model is exactly equal to the one we obtain with double 
 selection, however, this is more a coincident and nothing that we can expect to 
